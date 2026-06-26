@@ -30,7 +30,7 @@ jobs:
                 'assignment-2/spatial_join.png'
               ],
               'assignment-3': [
-                'assignment-3/README.md',
+                'ANSWERS.md',
                 'assignment-3/screencap_mndwi.png',
                 'assignment-3/screencap_ndvi_difference.png',
                 'assignment-3/landsat.py'

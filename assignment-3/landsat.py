@@ -1,7 +1,7 @@
 """
 Landsat 8 raster analysis with rasterio.
 
-Assignment 3 — Unit 5: Rasterio
+Assignment 3 — Unit 4: Rasterio
 """
 
 import numpy as np

@@ -1,4 +1,4 @@
-name: Check Unit 5 Submission
+name: Check Unit 4 Submission
 
 on:
   pull_request:
@@ -15,8 +15,8 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const UNIT = 5;
-            const EXPECTED_BRANCH = 'unit-5-work';
+            const UNIT = 4;
+            const EXPECTED_BRANCH = 'unit-4-work';
             const PLACEHOLDER = '_Your answer here._';
             const ASSIGNMENTS = [
               { title: "Assignment 1: GeoPandas Introduction", files: ["assignment-1/screencap-workspace-gdf.png","assignment-1/screencap-gdf-dist.png","assignment-1/screencap-gdf-centroids.png","assignment-1/screencap-gdf-buffered-centroid.png"] },

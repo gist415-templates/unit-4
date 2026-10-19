@@ -48,7 +48,21 @@ You work on **one branch** and open **one Pull Request** for the whole unit.
 
 ## Starting the Docker Python Environment
 
-See **Reference: Python Docker Environment for Units 3-4** in D2L for the `docker run` command to start Jupyter.
+The `environment/` folder holds the Dockerfile for the course Python image: JupyterLab plus GeoPandas, Rasterio and the other libraries this course uses. You do not need Anaconda or Python installed on your computer.
+
+If you built the image in Unit 3 on this computer, skip this step. Otherwise build it once, in PowerShell (Windows) or Terminal (Mac), from this repository's folder:
+
+```
+docker build -t gist415-python ./environment
+```
+
+Then, from this repository's folder, start JupyterLab each work session:
+
+```
+docker run --rm -it -p 8888:8888 -v "${PWD}:/home/jovyan/work" gist415-python
+```
+
+Open the URL the terminal prints, double-click `work` in the file browser, and save everything inside `work`. Full instructions: **Reference: Python Docker Environment for Units 3-4** in D2L, and Lecture 3.1.
 
 ## Automated Checker
 

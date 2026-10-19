@@ -48,21 +48,23 @@ You work on **one branch** and open **one Pull Request** for the whole unit.
 
 ## Starting the Docker Python Environment
 
-The `environment/` folder holds the Dockerfile for the course Python image: JupyterLab plus GeoPandas, Rasterio and the other libraries this course uses. You do not need Anaconda or Python installed on your computer.
+`compose.yaml` and the `environment/` folder define the course Python environment: JupyterLab plus pandas, GeoPandas, Rasterio and every other library this course uses, at exact versions. You do not need Anaconda or Python installed on your computer. Do not edit these files.
 
-If you built the image in Unit 3 on this computer, skip this step. Otherwise build it once, in PowerShell (Windows) or Terminal (Mac), from this repository's folder:
-
-```
-docker build -t gist415-python ./environment
-```
-
-Then, from this repository's folder, start JupyterLab each work session:
+With Docker Desktop running, open PowerShell (Windows) or Terminal (Mac) in this repository's folder and run:
 
 ```
-docker run --rm -it -p 8888:8888 -v "${PWD}:/home/jovyan/work" gist415-python
+docker compose up
 ```
 
-Open the URL the terminal prints, double-click `work` in the file browser, and save everything inside `work`. Full instructions: **Reference: Python Docker Environment for Units 3-4** in D2L, and Lecture 3.1.
+If you used it in Unit 3 on this computer, it starts in seconds. Otherwise the first run builds the course image (about 5–15 minutes). Open the `http://127.0.0.1:8888/lab?token=...` link the terminal prints, double-click `work` in the file browser, and save everything inside `work`.
+
+Quick test, once per computer (in a second terminal, same folder). Every line should say PASS:
+
+```
+docker compose run --rm jupyter check-environment
+```
+
+To stop: Ctrl+C, then `docker compose down`. Full instructions: **Reference: Python Docker Environment for Units 3-4** in D2L, and Lecture 3.1.
 
 ## Automated Checker
 

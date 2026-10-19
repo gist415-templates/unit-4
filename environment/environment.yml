@@ -1,0 +1,34 @@
+# GIST 415 Python environment: every library the course uses, at exact versions.
+#
+# These versions were solved together on conda-forge for linux-64 (Windows and Intel
+# Macs running Docker) and linux-aarch64 (Apple Silicon Macs) with Python 3.13.
+# Change a version only together with the others, and rerun check_environment.py.
+#
+# pandas stays below 3: pandas 3 changes copy and string behavior that older
+# tutorials (the Unit 3 lessons) rely on.
+
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - jupyterlab=4.6.4
+  - ipywidgets=8.1.9       # progress bars and widgets in notebooks (avoids a tqdm warning)
+
+  # Tables and plots (Unit 3, Unit 4)
+  - pandas=2.3.3
+  - numpy=2.5.4
+  - matplotlib-base=3.11.2
+
+  # Vector data (Unit 4 A1, A2, A4)
+  - geopandas=1.2.0
+  - shapely=2.2.0
+  - pyproj=3.8.0
+  - pyogrio=0.13.0
+  - geodatasets=2026.5.1   # sample data in the GeoPandas tutorial
+  - folium=0.20.0          # GeoDataFrame.explore() interactive maps
+  - mapclassify=2.11.0     # classified choropleths (scheme=)
+
+  # Raster data (Unit 4 A3)
+  - rasterio=1.5.2
+  - libgdal-core=3.13.3
+  - rasterstats=0.21.0

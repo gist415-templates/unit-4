@@ -1,0 +1,18 @@
+# GIST 415 Python environment.
+#
+# From this folder, with Docker Desktop running:
+#   docker compose up                                   start JupyterLab (builds the first time)
+#   docker compose down                                 stop it
+#   docker compose run --rm jupyter check-environment   quick test of every library
+#
+# Open the http://127.0.0.1:8888/lab?token=... link that `up` prints.
+# This folder appears inside JupyterLab as "work". Save everything there.
+
+services:
+  jupyter:
+    build: ./environment
+    image: gist415-python   # same name as `docker build -t gist415-python ./environment`
+    ports:
+      - "127.0.0.1:8888:8888"
+    volumes:
+      - .:/home/jovyan/work

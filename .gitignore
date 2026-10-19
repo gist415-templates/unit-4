@@ -1,0 +1,10 @@
+# Course Landsat data (gist415-landsat.zip from D2L): unzip into data/, do not commit
+data/landsat/
+
+# Rasters your code writes (for example the reprojected Landsat band)
+*.tif
+*.TIF
+
+# Jupyter and Python working files
+.ipynb_checkpoints/
+__pycache__/

@@ -44,7 +44,7 @@ You work on **one branch** and open **one Pull Request** for the whole unit.
 | `California Housing.ipynb` | Assignment 4 | Choropleth from census housing data |
 | `airports.ipynb` | Assignment 4 | Airport point mapping (reference only) |
 | `streetlights-assignment.ipynb` | Assignment 4 | Spatial join — Tucson streetlights × council districts |
-| `data/` | Assignment 4 | Sample datasets for the provided notebooks |
+| `data/` | Assignments 3 and 4 | Data you download for Assignment 3 (Landsat, from D2L) and the streetlights notebook; see `data/README.md` |
 
 ## Starting the Docker Python Environment
 

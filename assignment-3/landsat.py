@@ -13,12 +13,18 @@ from rasterio.warp import calculate_default_transform, reproject
 
 
 # ---------------------------------------------------------------------------
-# Configuration — update these paths to your Landsat 8 scene bands
+# Configuration — the course Landsat 8 bands from gist415-landsat.zip (D2L),
+# unzipped into data/ in this repository. Full paths, so the script works
+# whichever folder it is run from.
 # ---------------------------------------------------------------------------
-BAND_3 = 'path/to/LC08_B3.TIF'   # Green
-BAND_4 = 'path/to/LC08_B4.TIF'   # Red
-BAND_5 = 'path/to/LC08_B5.TIF'   # NIR
-BAND_6 = 'path/to/LC08_B6.TIF'   # SWIR
+DATA = '/home/jovyan/work/data/landsat/'
+SCENE = 'LC08_L1TP_042034_20170616_20170629_01_T1'   # 16 June 2017
+OUT = '/home/jovyan/work/assignment-3/'
+
+BAND_3 = DATA + SCENE + '_B3.TIF'   # Green
+BAND_4 = DATA + SCENE + '_B4.TIF'   # Red
+BAND_5 = DATA + SCENE + '_B5.TIF'   # NIR
+BAND_6 = DATA + SCENE + '_B6.TIF'   # SWIR
 
 
 # ---------------------------------------------------------------------------
@@ -122,8 +128,13 @@ if __name__ == '__main__':
     ax.set_title('NDVI')
     ax.set_axis_off()
     plt.tight_layout()
-    plt.savefig('assignment-3/screencap_ndvi_difference.png', dpi=150)
+    plt.savefig(OUT + 'ndvi.png', dpi=150)
     plt.show()
+
+    # --- NDVI difference (Q9) ---
+    # Add your standalone NDVI difference plot (2018 minus 2017) here, with a
+    # colormap not used in the tutorial and a colorbar, and save it as
+    # OUT + 'screencap_ndvi_difference.png'.
 
     # --- mNDWI (Q6) ---
     mndwi = calc_mndwi(green, swir)
@@ -134,8 +145,8 @@ if __name__ == '__main__':
         ax.set_title('mNDWI (Modified Normalized Difference Water Index)')
         ax.set_axis_off()
         plt.tight_layout()
-        plt.savefig('assignment-3/screencap_mndwi.png', dpi=150)
+        plt.savefig(OUT + 'screencap_mndwi.png', dpi=150)
         plt.show()
 
     # --- Reprojection (Q10) ---
-    reproject_to_epsg2227(BAND_5, 'assignment-3/nir_epsg2227.tif')
+    reproject_to_epsg2227(BAND_5, OUT + 'nir_epsg2227.tif')
